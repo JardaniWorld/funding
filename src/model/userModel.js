@@ -36,6 +36,19 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
+    
+     username: {
+        type: String,
+        required:true,
+        trim:true,
+        unique: true,
+
+        validate(value) {
+            if(!validator.isUsername(value)) {
+                throw new Error('This username does not exist')
+            }
+        }
+    },
 
     email: {
         type: String,
