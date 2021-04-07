@@ -101,11 +101,11 @@ userSchema.methods.generateToken = async function(){
     return token
 }
 
-userSchema.statics.findUserByCredentials = async (email, password)=> {
-    const user = await User.findOne({ email })
+userSchema.statics.findUserByCredentials = async (username, password)=> {
+    const user = await User.findOne({ username })
 
     if(!user) {
-        throw new Error('user with email does not exist')
+        throw new Error('This username does not exist')
     }
 
     console.log(password)
