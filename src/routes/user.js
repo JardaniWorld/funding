@@ -28,7 +28,7 @@ router.post('/user/sign-up', async (req, res)=> {
 
 router.post('/user/sign-in', async (req, res) => {
     try {
-        const user = await User.findUserByCredentials(req.body.username, req.body.password);
+        const user = await User.findUserByCredentials(req.body.email, req.body.password);
         const token = await user.generateToken()
 
         res.status(200).json({
